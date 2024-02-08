@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjectionFixed" Version="5.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Blocks\Roko.Template.Blocks.Common.Exceptions\Roko.Template.Blocks.Common.Exceptions.csproj" />
+    <ProjectReference Include="..\..\Blocks\Roko.Template.Blocks.Common.Kernel\Roko.Template.Blocks.Common.Kernel.csproj" />
+    <ProjectReference Include="..\Roko.Template.Application.Contracts\Roko.Template.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
