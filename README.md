@@ -22,6 +22,8 @@ Purpose of this approach is to easily distinguish different systems our applicat
 
 # Project structure
 
+![Project structure image](./assets/ProjectStructure.png)
+
 ## Application Layer
 
 Defines the jobs the software is supposed to do and directs the expressive domain objects to work out problems. The tasks this layer is responsible for are meaningful to the business or necessary for interaction with other systems.
@@ -40,6 +42,11 @@ This is where we are defining contracts our **Roko.Template.Application** Layer 
 
 This is where all business logic should happen. We are doing this by levering out **MediatR** commands and queries which follow **Separation of Concerns Principle** nicely. In order to communicate with database or any other system, we are using interfaces we define in **Roko.Template.Application.Contracts** to achieve this.
 For validating our commands and queries, we are using **FluentValidation** which works nicely with **MediatR**
+
+## Blocks Layer
+
+This layers consists of helper classes that are used in one or more .NET libraries. Good examples is when you need specific exceptions in Presentation and Infrastructure layer or you have some extension methods on native .NET types. (eg. List extenisions)
+
 
 ## Domain Layer
 
