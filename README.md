@@ -118,7 +118,7 @@ This will create your template for later usage via .NET CLI tools
 - In Roko.Template folder
   - Open terminal and run
 ```
-  dotnet new install .\
+  dotnet new install .
 ```
 - To check if your template named roko-api is installed run
 ```
