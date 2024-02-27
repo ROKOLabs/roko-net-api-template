@@ -10,5 +10,16 @@
   "tags": {
     "language": "C#",
     "type": "solution"
-  }
+  },
+  "sources":[
+    {
+      "modifiers":[
+        {
+          "exclude":[
+            "**/.idea/**"
+          ]
+        }
+      ]
+    }
+  ]
 }
