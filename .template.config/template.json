@@ -10,5 +10,17 @@
   "tags": {
     "language": "C#",
     "type": "solution"
-  }
+  },
+  "sources":[
+    {
+      "modifiers":[
+        {
+          "exclude":[
+            "**/.git/**",
+            "**/.vs/**"
+          ]
+        }
+      ]
+    }
+  ]
 }
