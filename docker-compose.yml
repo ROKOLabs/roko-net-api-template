@@ -3,9 +3,9 @@ services:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: roko.template-mssql
     volumes:
-      - c:/data:/var/opt/mssql/data
-      - c:/log:/var/opt/mssql/log
-      - c:/secrets:/var/opt/mssql/secrets
+      - ~/docker_volume/data:/var/opt/mssql/data
+      - ~/docker_volume/log:/var/opt/mssql/log
+      - ~/docker_volume/secrets:/var/opt/mssql/secrets
     environment:
       ACCEPT_EULA: "Y"
       MSSQL_SA_PASSWORD: yourStrong(!)Password
