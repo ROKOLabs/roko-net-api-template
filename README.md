@@ -111,7 +111,7 @@ docker compose up
 ```
 -  Start your application from IDE
 
-## Installing template
+## Installing template manually
 
 This will create your template for later usage via .NET CLI tools
 
@@ -127,6 +127,32 @@ dotnet new --list
 
 > If your template isn't listed, try restarting the terminal (close and reopen).
 
+## Installing template via nupkg
+
+Inside root folder, there is folder called .nupkg which containts **roko.template.api.1.0.0.nupkg file.
+In order to install template via aformentioned file:
+
+- download file
+- run
+
+```
+dotnet new install [path-to-template]
+
+dotnet new install "C:\Users\Mario\source\Roko.Template\.nupkg\roko.template.api.1.0.0.nupkg"
+```
+
+## Upgrading template
+
+When there are code changes in template, we need to regenerate new version o nupkg file manually (TODO: via CICD)
+
+- Increase version on nuspec file
+- Run
+
+```
+nuget.exe pack [path-to-nuspec file[ -OutputDirectory [path-to-output-directory] -NoDefaultExcludes
+nuget.exe pack "C:\Users\Mario\source\Roko.Template\roko-template.nuspec" -OutputDirectory "C:\Users\Mario\source\Roko.Template\.nupkg" -NoDefaultExcludes
+```
+
 ## Using template
 
 - First, install template
@@ -136,10 +162,3 @@ dotnet new --list
 dotnet new roko-api -n Roko.FirstProject
 ```
 - Check if your project is generated correctly
-
-
-nuget.exe pack "C:\Users\Mario\source\Roko.Template\roko-template.nuspec" -OutputDirectory "C:\Users\Mario\source\Roko.Template\.nupkg"
-
-nuget.exe pack "C:\Users\Mario\source\Roko.Template\roko-template.nuspec" -OutputDirectory "C:\Users\Mario\source\Roko.Template\.nupkg" -NoDefaultExcludes
-
-dotnet new install "C:\Users\Mario\source\Roko.Template\.nupkg\roko.template.api.1.0.0.nupkg"
