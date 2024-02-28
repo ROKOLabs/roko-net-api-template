@@ -126,3 +126,10 @@ dotnet new --list
 dotnet new roko-api -n Roko.FirstProject
 ```
 - Check if your project is generated correctly
+
+
+nuget.exe pack "C:\Users\Mario\source\Roko.Template\roko-template.nuspec" -OutputDirectory "C:\Users\Mario\source\Roko.Template\.nupkg"
+
+nuget.exe pack "C:\Users\Mario\source\Roko.Template\roko-template.nuspec" -OutputDirectory "C:\Users\Mario\source\Roko.Template\.nupkg" -NoDefaultExcludes
+
+dotnet new install "C:\Users\Mario\source\Roko.Template\.nupkg\roko.template.api.1.0.0.nupkg"

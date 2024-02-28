@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>roko.template.api</id>
+    <version>1.0.0</version>
+    <authors>Mario Grd</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
+    <description>.NET Web Api Template</description>
+    <copyright>$copyright$</copyright>
+    <tags>.NET_8.0 Web</tags>
+  </metadata>
+
+<files>
+    <file   src=".template.config\**\*.*"
+            target=".template.config" />
+    
+    <file   src="src\**"
+            target="src"
+            exclude="**\bin\**;**\obj\**;" />
+
+    <file   src="README.md" 
+            target="README.md" />
+    
+    <file   src=".gitignore" 
+            target=".gitignore" />
+    
+    <file   src=".editorconfig" 
+            target=".editorconfig" />
+
+    <file   src="Roko.Template.sln" 
+            target="Roko.Template.sln" />
+
+    <file   src="docker-compose.yml" 
+            target="docker-compose.yml" />
+</files> 
+          
+</package>
