@@ -153,3 +153,4 @@ dotnet new --list
 dotnet new roko-api -n Roko.FirstProject
 ```
 - Check if your project is generated correctly
+- Add "InitialCreate" Entity Framework migration

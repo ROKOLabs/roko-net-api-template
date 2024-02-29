@@ -42,6 +42,11 @@
             {
                 dbContext.Database.Migrate();
             }
+            else
+            {
+                throw new InvalidOperationException(
+                    $"""Create "InitialCreate" migration so that database can be created""");
+            }
 
             return builder;
         }

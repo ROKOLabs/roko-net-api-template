@@ -18,7 +18,8 @@
           "exclude":[
             "**/.git/**",
             "**/.vs/**",
-            "**/.idea/**"
+            "**/.idea/**",
+            "**/src/Infrastructure/Roko.Template.Infrastructure.Db.MyDb/Migrations/**"
           ]
         }
       ]
