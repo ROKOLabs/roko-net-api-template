@@ -6,10 +6,10 @@
 
     internal sealed class UnitOfWork : IUnitOfWork
     {
-        private readonly MssqlDbContext context;
+        private readonly MyDbContext context;
 
         public UnitOfWork(
-            MssqlDbContext context,
+            MyDbContext context,
             ICategoryRepository categoryRepository)
         {
             this.context = context;

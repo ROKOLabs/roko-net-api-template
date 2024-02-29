@@ -13,7 +13,7 @@
     {
         private readonly DbSet<Category> _categories;
 
-        public CategoryRepository(MssqlDbContext context)
+        public CategoryRepository(MyDbContext context)
         {
             this._categories = context.Set<Category>();
         }

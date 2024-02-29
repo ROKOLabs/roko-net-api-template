@@ -1,15 +1,17 @@
 services:
-  roko.template-mssql:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: roko.template-mssql
-    volumes:
-      - ~/docker_volume/data:/var/opt/mssql/data
-      - ~/docker_volume/log:/var/opt/mssql/log
-      - ~/docker_volume/secrets:/var/opt/mssql/secrets
+  roko.template-postgres:
+    image: postgres
+    container_name: roko.template-postgres
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
-      ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: yourStrong(!)Password
-      MSSQL_PID: Developer
+      POSTGRES_PASSWORD: yourStrong(!)Password
     restart: unless-stopped
     ports:
-      - "1433:1433"
+      - "5432:5432"

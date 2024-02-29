@@ -3,9 +3,9 @@
     using Microsoft.EntityFrameworkCore;
     using System.Reflection;
 
-    internal sealed class MssqlDbContext : DbContext
+    internal sealed class MyDbContext : DbContext
     {
-        public MssqlDbContext(DbContextOptions<MssqlDbContext> options) : base(options)
+        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }
 

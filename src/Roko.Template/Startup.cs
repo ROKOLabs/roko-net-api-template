@@ -23,15 +23,15 @@
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
 
-        public MssqlSettings MssqlSettings =>
+        public PostgresSettings PostgresSettings =>
             this.Configuration
-            .GetSection(MssqlSettings.Key)
-            .Get<MssqlSettings>() ?? throw new ArgumentNullException(nameof(this.MssqlSettings));
+            .GetSection(PostgresSettings.Key)
+            .Get<PostgresSettings>() ?? throw new ArgumentNullException(nameof(this.PostgresSettings));
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddInfrastructureMssqlConfiguration(this.MssqlSettings);
+            services.AddInfrastructurePostgresConfiguration(this.PostgresSettings);
             services.AddApplicationLayer();
             services.AddPresentationConfiguration(this.Environment);
         }

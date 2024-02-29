@@ -11,9 +11,9 @@
 
     public static class Module
     {
-        public static IServiceCollection AddInfrastructureMssqlConfiguration(this IServiceCollection services, MssqlSettings settings)
+        public static IServiceCollection AddInfrastructurePostgresConfiguration(this IServiceCollection services, PostgresSettings settings)
         {
-            services.AddDbContext<MssqlDbContext>(options => options.UseSqlServer(settings.ConnectionString));
+            services.AddDbContext<MyDbContext>(options => options.UseNpgsql(settings.ConnectionString));
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -25,7 +25,7 @@
         {
             using var scope = builder.ApplicationServices.CreateScope();
 
-            using var dbContext = scope.ServiceProvider.GetService<MssqlDbContext>();
+            using var dbContext = scope.ServiceProvider.GetService<MyDbContext>();
 
             if (dbContext is null)
             {
@@ -41,9 +41,9 @@
         }
     }
 
-    public class MssqlSettings
+    public class PostgresSettings
     {
-        public const string Key = nameof(MssqlSettings);
+        public const string Key = nameof(PostgresSettings);
         public string? ConnectionString { get; set; } = default;
     }
 }
