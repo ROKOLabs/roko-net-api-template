@@ -11,17 +11,24 @@
     "language": "C#",
     "type": "solution"
   },
-  "sources":[
-    {
-      "modifiers":[
-        {
-          "exclude":[
-            "**/.git/**",
-            "**/.vs/**",
-            "**/.idea/**"
-          ]
-        }
-      ]
-    }
-  ]
+  "sources": [
+  {
+    "source": "./src/",
+    "include": [
+      "**"
+    ],
+    "target": "./src/"
+  },
+
+  {
+    "source": "./",
+    "include": [
+      "README.md",
+      "Roko.Template.sln",
+      ".gitignore",
+      ".editorconfig",
+      "docker-compose.yml"
+    ],
+    "target": "./"
+  }]
 }
