@@ -8,11 +8,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DefineConstants>TRACE;MyDb</DefineConstants>
+    <DefineConstants>TRACE;Postgres</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DefineConstants>TRACE;MyDb</DefineConstants>
+    <DefineConstants>TRACE;Postgres</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,10 +28,6 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
 
-  <!-- Postgres is default for template testing -->
-  <ItemGroup Condition="'$(Database)' == 'MyDb'">
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
-  </ItemGroup>
   <ItemGroup Condition="'$(Database)' == 'Postgres'">
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
   </ItemGroup>
