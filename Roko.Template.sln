@@ -23,7 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+#if( false )
 		.template.config\template.json = .template.config\template.json
+#endif
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roko.Template.Application.Contracts", "src\Application\Roko.Template.Application.Contracts\Roko.Template.Application.Contracts.csproj", "{F4CF7652-1D33-4FD2-A91C-E543F8ECE570}"
@@ -38,7 +40,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roko.Template.Presentation.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roko.Template", "src\Roko.Template\Roko.Template.csproj", "{4150244F-FB96-4784-BD10-EE326E3F38F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roko.Template.Infrastructure.Db.Mssql", "src\Infrastructure\Roko.Template.Infrastructure.Db.Mssql\Roko.Template.Infrastructure.Db.Mssql.csproj", "{98B4240B-425F-423B-B1D6-24AC3D7DE773}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roko.Template.Infrastructure.Db.MyDb", "src\Infrastructure\Roko.Template.Infrastructure.Db.MyDb\Roko.Template.Infrastructure.Db.MyDb.csproj", "{98B4240B-425F-423B-B1D6-24AC3D7DE773}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roko.Template.Application", "src\Application\Roko.Template.Application\Roko.Template.Application.csproj", "{900D15D5-BA34-4C71-A442-15AEEE39248F}"
 EndProject

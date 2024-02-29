@@ -1,9 +1,10 @@
-﻿namespace Roko.Template.Infrastructure.Db.Mssql.Internal.Repositories
+﻿namespace Roko.Template.Infrastructure.Db.MyDb.Internal.Repositories
 {
     using Roko.Template.Application.Contracts;
     using Roko.Template.Blocks.Common.Exceptions;
     using Roko.Template.Domain;
     using Microsoft.EntityFrameworkCore;
+    using Roko.Template.Infrastructure.Db.MyDb.Internal;
     using System;
     using System.Collections.Generic;
     using System.Threading;

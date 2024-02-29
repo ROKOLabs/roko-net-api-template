@@ -91,13 +91,25 @@ This helps to keep your dependencies clean.
     - In upper right corner select Roko.Template as a startup project
     - In Solution Explorer right-click on Roko.Template
     - Click on **Tools > .Net User Secrets**
-- Add the following secrets 
+- Add the following secrets
 
+//#if (Postgres)
+For Postgres SQL:
 ```
 {
   "PostgresSettings:ConnectionString": "User ID=postgres; Password=yourStrong(!)Password;Host=localhost; Port=5432; Database=RokoTemplateDatabase"
 }
 ```
+//#endif
+
+//#if (MsSql)
+For MS SQL Server:
+```
+{
+  "MssqlSettings:ConnectionString": "Server=localhost; Database=RokoTemplateDatabase;User Id=SA;Password=yourStrong(!)Password;TrustServerCertificate=Yes"
+}
+```
+//#endif
 
 > On Windows, user secrets are saved in `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json` and on Linux and Mac, in `~/.microsoft/usersecrets/<user_secrets_id>/secrets.json`. If the environment variable `APPDATA` is found during runtime on a Linux system, the file is searched for in the Windows location. The variable could have been added to your system for a variety of reasons. If so, copy `~/.microsoft/usersecrets/<user_secret_id>` folder to `%APPDATA%/Microsoft/UserSecrets`.
 > 
@@ -109,6 +121,11 @@ This helps to keep your dependencies clean.
 ```
 docker compose up
 ```
+
+> When the template is launched, Docker images for both the Postgres and MsSql databases are started. The template also includes the Entity Framework Core packages, which are required for working with both MsSql and Postgres. To test the template with either, use the preprocessor constants; the default is MyDb which uses Postgres.
+>
+> When instances of solutions are generated from the template, only one database container and corresponding package are used.
+
 -  Start your application from IDE
 
 ## Installing template

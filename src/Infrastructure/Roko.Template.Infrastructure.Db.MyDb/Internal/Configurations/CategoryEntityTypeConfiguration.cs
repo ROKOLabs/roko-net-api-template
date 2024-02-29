@@ -1,4 +1,4 @@
-﻿namespace Roko.Template.Infrastructure.Db.Mssql.Internal.Configurations
+﻿namespace Roko.Template.Infrastructure.Db.MyDb.Internal.Configurations
 {
     using Roko.Template.Domain;
     using Microsoft.EntityFrameworkCore;

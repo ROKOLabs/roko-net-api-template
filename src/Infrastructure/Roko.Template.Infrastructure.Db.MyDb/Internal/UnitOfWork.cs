@@ -1,4 +1,4 @@
-﻿namespace Roko.Template.Infrastructure.Db.Mssql.Internal
+﻿namespace Roko.Template.Infrastructure.Db.MyDb.Internal
 {
     using Roko.Template.Application.Contracts;
     using System.Threading;

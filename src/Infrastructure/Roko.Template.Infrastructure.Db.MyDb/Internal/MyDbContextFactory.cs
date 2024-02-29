@@ -1,4 +1,4 @@
-﻿namespace Roko.Template.Infrastructure.Db.Mssql.Internal
+﻿namespace Roko.Template.Infrastructure.Db.MyDb.Internal
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Design;
@@ -10,7 +10,13 @@
         {
             var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
 
+#if (Postgres)
             optionsBuilder.UseNpgsql(null);
+#elif (MsSql)
+            optionsBuilder.UseSqlServer(null);
+#else
+    #error Database not supported, define project constant or template parameter with the right value
+#endif
 
             var instance = new MyDbContext(optionsBuilder.Options);
 

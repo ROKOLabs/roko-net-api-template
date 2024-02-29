@@ -1,8 +1,8 @@
-﻿namespace Roko.Template.Infrastructure.Db.Mssql
+﻿namespace Roko.Template.Infrastructure.Db.MyDb
 {
     using Roko.Template.Application.Contracts;
-    using Roko.Template.Infrastructure.Db.Mssql.Internal;
-    using Roko.Template.Infrastructure.Db.Mssql.Internal.Repositories;
+    using Roko.Template.Infrastructure.Db.MyDb.Internal;
+    using Roko.Template.Infrastructure.Db.MyDb.Internal.Repositories;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
@@ -11,9 +11,17 @@
 
     public static class Module
     {
-        public static IServiceCollection AddInfrastructurePostgresConfiguration(this IServiceCollection services, PostgresSettings settings)
+        public static IServiceCollection AddInfrastructureMyDbConfiguration(this IServiceCollection services, MyDbSettings settings)
         {
+#if (MyDb)
             services.AddDbContext<MyDbContext>(options => options.UseNpgsql(settings.ConnectionString));
+#elif (Postgres)
+            services.AddDbContext<MyDbContext>(options => options.UseNpgsql(settings.ConnectionString));
+#elif (MsSql)
+            services.AddDbContext<MyDbContext>(options => options.UseSqlServer(settings.ConnectionString));
+#else
+    #error Database not supported, define project constant or template parameter with the right value
+#endif
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -21,7 +29,7 @@
             return services;
         }
 
-        public static IApplicationBuilder MigrateMssqlDb(this IApplicationBuilder builder)
+        public static IApplicationBuilder MigrateMyDb(this IApplicationBuilder builder)
         {
             using var scope = builder.ApplicationServices.CreateScope();
 
@@ -41,9 +49,17 @@
         }
     }
 
-    public class PostgresSettings
+    public class MyDbSettings
     {
-        public const string Key = nameof(PostgresSettings);
+#if (MyDb)
+        public const string Key = "PostgresSettings";
+#elif (Postgres)
+        public const string Key = "PostgresSettings";
+#elif (MsSql)
+        public const string Key = "MsSqlSettings";
+#else
+    #error Database not supported, define project constant or template parameter with the right value
+#endif
         public string? ConnectionString { get; set; } = default;
     }
 }

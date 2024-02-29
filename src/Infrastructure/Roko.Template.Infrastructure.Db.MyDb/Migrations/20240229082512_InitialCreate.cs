@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Roko.Template.Infrastructure.Db.Mssql.Migrations
+namespace Roko.Template.Infrastructure.Db.MyDb.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

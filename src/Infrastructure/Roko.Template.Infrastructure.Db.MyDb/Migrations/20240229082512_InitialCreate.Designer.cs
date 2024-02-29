@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Roko.Template.Infrastructure.Db.Mssql.Internal;
+using Roko.Template.Infrastructure.Db.MyDb.Internal;
 
 #nullable disable
 
-namespace Roko.Template.Infrastructure.Db.Mssql.Migrations
+namespace Roko.Template.Infrastructure.Db.MyDb.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240228170647_Initial")]
-    partial class Initial
+    [Migration("20240229082512_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
