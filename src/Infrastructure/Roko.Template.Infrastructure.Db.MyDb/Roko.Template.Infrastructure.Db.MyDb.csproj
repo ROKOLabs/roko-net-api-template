@@ -27,13 +27,20 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
-
+<!--#if( false )-->
+  <ItemGroup Condition="'$(Database)' == 'MyDb'">
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+  </ItemGroup>
+<!--#endif-->
+<!--#if( Postgres )-->
   <ItemGroup Condition="'$(Database)' == 'Postgres'">
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
   </ItemGroup>
+<!--#elif( MsSql )-->
   <ItemGroup Condition="'$(Database)' == 'MsSql'">
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
   </ItemGroup>
+<!--#endif-->
 
   <ItemGroup>
 	<FrameworkReference Include="Microsoft.AspNetCore.App" />
