@@ -1,4 +1,4 @@
-﻿namespace Roko.Template.Infrastructure.Db.Mssql.Internal.Extensions
+﻿namespace Roko.Template.Infrastructure.Db.MyDb.Internal.Extensions
 {
     using System;
     using System.Linq;

@@ -1,7 +1,7 @@
 ﻿namespace Roko.Template
 {
     using Roko.Template.Application;
-    using Roko.Template.Infrastructure.Db.Mssql;
+    using Roko.Template.Infrastructure.Db.MyDb;
     using Roko.Template.Presentation.Api;
     using Roko.Template.Presentation.Api.Internal.Swagger;
     using Hellang.Middleware.ProblemDetails;
@@ -23,15 +23,23 @@
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
 
-        public MssqlSettings MssqlSettings =>
+#if (Postgres)
+        public const string DbSettingsName = "PostgresSettings";
+#elif (MsSql)
+        public const string DbSettingsName = "MsSqlSettings";
+#else
+    #error Database not supported, define project constant or template parameter with the right value
+#endif
+
+        public MyDbSettings MyDbSettings =>
             this.Configuration
-            .GetSection(MssqlSettings.Key)
-            .Get<MssqlSettings>() ?? throw new ArgumentNullException(nameof(this.MssqlSettings));
+            .GetSection(MyDbSettings.Key)
+            .Get<MyDbSettings>() ?? throw new ArgumentNullException(DbSettingsName);
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddInfrastructureMssqlConfiguration(this.MssqlSettings);
+            services.AddInfrastructureMyDbConfiguration(this.MyDbSettings);
             services.AddApplicationLayer();
             services.AddPresentationConfiguration(this.Environment);
         }
@@ -45,7 +53,7 @@
                 app.UseHsts();
             }
 
-            app.MigrateMssqlDb();
+            app.MigrateMyDb();
 
             app.UseHttpsRedirection();
 

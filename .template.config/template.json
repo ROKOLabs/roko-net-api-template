@@ -11,24 +11,53 @@
     "language": "C#",
     "type": "solution"
   },
-  "sources": [
-  {
-    "source": "./src/",
-    "include": [
-      "**"
-    ],
-    "target": "./src/"
-  },
-
-  {
-    "source": "./",
-    "include": [
-      "README.md",
-      "Roko.Template.sln",
-      ".gitignore",
-      ".editorconfig",
-      "docker-compose.yml"
-    ],
-    "target": "./"
-  }]
+  "sources":[
+    {
+      "modifiers":[
+        {
+          "exclude":[
+            "**/.git/**",
+            "**/.vs/**",
+            "**/.idea/**",
+            "**/src/Infrastructure/Roko.Template.Infrastructure.Db.MyDb/Migrations/**"
+          ]
+        }
+      ]
+    }
+  ],
+  "symbols": {
+    "Database": {
+      "type": "parameter",
+      "description": "The target database for the project.",
+      "datatype": "choice",
+      "allowMultipleValues": false,
+      "enableQuotelessLiterals": true,
+      "choices": [
+        {
+          "choice": "MsSql",
+          "description": "Microsoft SQL Server relational database."
+        },
+        {
+          "choice": "Postgres",
+          "description": "The Postgres SQL object-relational database."
+        }
+      ],
+      "defaultValue": "Postgres",
+      "fileRename": "MyDb",
+      "replaces": "MyDb"
+    },
+    "Postgres": {
+      "type": "computed",
+      "value": "(Database==\"Postgres\")"
+    },
+    "MsSql": {
+      "type": "computed",
+      "value": "(Database==\"MsSql\")"
+    },
+    "IdUniqueFolderMsSql": {
+      "type": "generated",
+      "generator": "guid",
+      "replaces": "UniqueFolderMsSql"
+    }
+  }
 }
