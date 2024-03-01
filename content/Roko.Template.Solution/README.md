@@ -144,7 +144,7 @@ For Microsoft SQL Server:
 
 <!--#if(false)-->
 ## Installing
-The `README.md` file in the parent folder contains instructions for installing the template package. This template will be added alongside the others when a corresponding `nupkg` is installed. After the installation, this template can be found under the short name `roko-api`. Use `dotnet new --list` to check if the template is installed.
+The `README.md` file in the parent folder contains instructions for installing the template package. This template will be added alongside the others when a corresponding `nupkg` is installed. After the installation, this template can be found under the short name `roko-api`. Use `dotnet new list` to check if the template is installed.
 
 ### Installation from file system (debug scenario)
 - In Roko.Template folder, open terminal and run
@@ -154,7 +154,7 @@ The `README.md` file in the parent folder contains instructions for installing t
 ```
 - To check if your template named roko-api is installed run
 ```
-  dotnet new --list
+  dotnet new list
 ```
 
 > If your template isn't listed, try restarting the terminal (close and reopen).
