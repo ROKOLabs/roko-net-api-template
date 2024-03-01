@@ -115,30 +115,26 @@ docker compose up
 
 This will create your template for later usage via .NET CLI tools
 
-- In Roko.Template folder
-  - Open terminal and run
+- Open terminal in solution root folder and run
 ```
   dotnet new install .
 ```
 - To check if your template named roko-api is installed run
 ```
-dotnet new --list
+  dotnet new --list
 ```
 
 > If your template isn't listed, try restarting the terminal (close and reopen).
 
 ## Installing template via nupkg
 
-Inside root folder, there is folder called .nupkg which containts **roko.template.api.1.0.0.nupkg file.
+Inside root folder, there is folder called .nupkg which containts **roko.template.api.1.0.0.nupkg file. If that folder or file is missing, execute [steps to create the package](#upgrading-template).
+
 In order to install template via aformentioned file:
 
-- download file
-- run
-
+- Open terminal in solution root folder and run
 ```
-dotnet new install [path-to-template]
-
-dotnet new install "C:\Users\Mario\source\Roko.Template\.nupkg\roko.template.api.1.0.0.nupkg"
+  dotnet new install .nupkg\roko.template.api.1.0.0.nupkg
 ```
 
 ## Upgrading template
@@ -146,11 +142,9 @@ dotnet new install "C:\Users\Mario\source\Roko.Template\.nupkg\roko.template.api
 When there are code changes in template, we need to regenerate new version o nupkg file manually (TODO: via CICD)
 
 - Increase version on nuspec file
-- Run
-
+- Open terminal in solution root folder and run:
 ```
-nuget.exe pack [path-to-nuspec file[ -OutputDirectory [path-to-output-directory] -NoDefaultExcludes
-nuget.exe pack "C:\Users\Mario\source\Roko.Template\roko-template.nuspec" -OutputDirectory "C:\Users\Mario\source\Roko.Template\.nupkg" -NoDefaultExcludes
+  nuget pack roko-template.nuspec -OutputDirectory .nupkg" -NoDefaultExcludes
 ```
 
 ## Using template
@@ -159,6 +153,6 @@ nuget.exe pack "C:\Users\Mario\source\Roko.Template\roko-template.nuspec" -Outpu
 - Navigate to folder where you want to install template
 - Run
 ```
-dotnet new roko-api -n Roko.FirstProject
+  dotnet new roko-api -n Roko.FirstProject
 ```
 - Check if your project is generated correctly
