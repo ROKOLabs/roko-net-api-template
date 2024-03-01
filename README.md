@@ -143,11 +143,12 @@ For Microsoft SQL Server:
 -  Start your application from IDE
 
 <!--#if(false)-->
-## Installing template
+## Installing template manually
 
 This will create your template for later usage via .NET CLI tools
 
 - In Roko.Template folder, open terminal and run
+- Open terminal in solution root folder and run
 ```
   dotnet new install .
 ```
@@ -157,6 +158,27 @@ This will create your template for later usage via .NET CLI tools
 ```
 
 > If your template isn't listed, try restarting the terminal (close and reopen).
+
+## Installing template via nupkg
+
+Inside root folder, there is folder called .nupkg which containts **roko.template.api.1.0.0.nupkg file. If that folder or file is missing, execute [steps to create the package](#upgrading-template).
+
+In order to install template via aformentioned file:
+
+- Open terminal in solution root folder and run
+```
+  dotnet new install .nupkg\roko.template.api.1.0.0.nupkg
+```
+
+## Upgrading template
+
+When there are code changes in template, we need to regenerate new version o nupkg file manually (TODO: via CICD)
+
+- Increase version on nuspec file
+- Open terminal in solution root folder and run:
+```
+  nuget pack roko-template.nuspec -OutputDirectory .nupkg" -NoDefaultExcludes
+```
 
 ## Using template
 
