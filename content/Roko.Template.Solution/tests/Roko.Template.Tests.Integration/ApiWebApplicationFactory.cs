@@ -10,11 +10,7 @@ namespace Roko.Template.Tests.Integration
 
     public class ApiWebApplicationFactory: WebApplicationFactory<Roko.Template.Startup>
     {
-#if( MyDb )
-        private readonly Testcontainers.PostgreSql.PostgreSqlContainer _databaseContainer = new Testcontainers.PostgreSql.PostgreSqlBuilder()
-            .WithDatabase("RokoTemplateDatabase")
-            .Build();
-#elif( Postgres )
+#if( Postgres )
         private readonly Testcontainers.PostgreSql.PostgreSqlContainer _databaseContainer = new Testcontainers.PostgreSql.PostgreSqlBuilder()
             .WithDatabase("RokoTemplateDatabase")
             .Build();
@@ -32,9 +28,7 @@ namespace Roko.Template.Tests.Integration
             {
                 config.AddInMemoryCollection(
                 [
-#if( MyDb )
-                    new ("PostgresSettings:ConnectionString", this._databaseContainer.GetConnectionString())
-#elif( Postgres )
+#if( Postgres )
                     new ("PostgresSettings:ConnectionString", this._databaseContainer.GetConnectionString())
 #elif( MsSql )
                     new ("MssqlSettings:ConnectionString", this._databaseContainer.GetConnectionString().Replace("Database=master", "Database=RokoTemplateDatabase"))
