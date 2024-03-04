@@ -22,8 +22,10 @@
 
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
-
-#if (Postgres)
+        
+#if (MyDb)
+        public const string DbSettingsName = "PostgresSettings";
+#elif (Postgres)
         public const string DbSettingsName = "PostgresSettings";
 #elif (MsSql)
         public const string DbSettingsName = "MsSqlSettings";

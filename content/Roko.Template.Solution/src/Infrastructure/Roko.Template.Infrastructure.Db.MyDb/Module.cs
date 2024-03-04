@@ -13,7 +13,9 @@
     {
         public static IServiceCollection AddInfrastructureMyDbConfiguration(this IServiceCollection services, MyDbSettings settings)
         {
-#if (Postgres)
+#if (MyDb)
+            services.AddDbContext<MyDbContext>(options => options.UseNpgsql(settings.ConnectionString));
+#elif (Postgres)
             services.AddDbContext<MyDbContext>(options => options.UseNpgsql(settings.ConnectionString));
 #elif (MsSql)
             services.AddDbContext<MyDbContext>(options => options.UseSqlServer(settings.ConnectionString));
@@ -55,7 +57,9 @@
 
     public class MyDbSettings
     {
-#if (Postgres)
+#if (MyDb)
+        public const string Key = "PostgresSettings";
+#elif (Postgres)
         public const string Key = "PostgresSettings";
 #elif (MsSql)
         public const string Key = "MsSqlSettings";

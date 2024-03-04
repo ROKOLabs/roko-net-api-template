@@ -10,7 +10,9 @@
         {
             var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
 
-#if (Postgres)
+#if (MyDb)
+            optionsBuilder.UseNpgsql(null);
+#elif (Postgres)
             optionsBuilder.UseNpgsql(null);
 #elif (MsSql)
             optionsBuilder.UseSqlServer(null);
