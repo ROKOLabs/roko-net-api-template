@@ -12,7 +12,7 @@
     using Microsoft.Extensions.Hosting;
     using System;
 
-    internal sealed class Startup
+    public sealed class Startup
     {
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {

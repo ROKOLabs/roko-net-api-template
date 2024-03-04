@@ -20,7 +20,7 @@
 
             builder.Property(c => c.Icon).IsRequired().HasMaxLength(50);
 
-            builder.Property(c => c.Color).IsRequired().HasMaxLength(20);
+            builder.Property(c => c.Color).IsRequired().HasMaxLength(50);
 
             builder.Property(p => p.Amount).IsRequired();
         }

@@ -11,7 +11,7 @@ using Roko.Template.Infrastructure.Db.MyDb.Internal;
 namespace Roko.Template.Infrastructure.Db.MyDb.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MssqlDbContextModelSnapshot : ModelSnapshot
+    partial class MyDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -33,8 +33,8 @@ namespace Roko.Template.Infrastructure.Db.MyDb.Migrations
 
                     b.Property<string>("Color")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("Description")
                         .IsRequired()

@@ -18,7 +18,7 @@ namespace Roko.Template.Infrastructure.Db.MyDb.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    Color = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    Color = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     Icon = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     Amount = table.Column<decimal>(type: "numeric", nullable: false)
                 },
