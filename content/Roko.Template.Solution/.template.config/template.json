@@ -1,6 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "Mario Grd",
+  "author": "Rokolabs",
   "classifications": [ "Web" ],
   "identity": "Roko.Api",
   "name": "Roko.Api",
