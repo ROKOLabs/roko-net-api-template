@@ -38,14 +38,15 @@
                 throw new ApplicationException(nameof(dbContext));
             }
 
-            if (dbContext.Database.GetPendingMigrations().Any())
-            {
-                dbContext.Database.Migrate();
-            }
-            else
+            if (!dbContext.Database.GetMigrations().Any())
             {
                 throw new InvalidOperationException(
                     $"""Create "InitialCreate" migration so that database can be created""");
+            }
+            
+            if (dbContext.Database.GetPendingMigrations().Any())
+            {
+                dbContext.Database.Migrate();
             }
 
             return builder;
