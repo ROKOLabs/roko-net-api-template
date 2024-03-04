@@ -34,6 +34,12 @@ To build the NuGet package with templates, run the following command:
 
 After a successful build, locate the `Roko.Net.Api.Template.X.Y.Z.nupkg` file in the `bin/Debug` folder (where X.Y.Z is the version number, such as 1.0.0).
 
+## Templates provided
+
+| Name     | Folder                         | Description                                                                                                                                                                                                                                                                                                                                              |
+|----------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| roko-api | content/Roko.Template.Solution | Template project for creating .NET Core Web Api application based on .NET 8.0. The solution consists of application fundamentals such as web API presentation, application and domain layers, an Entity Framework Core database layer, some common application blocks, and a number of automated tests. The setup of Docker containers is also included. |
+
 ## Using the template
 To install the package, run the following command:
 ```
