@@ -48,6 +48,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roko.Template.Tests.Archite
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roko.Template.Tests.Integration", "tests\Roko.Template.Tests.Integration\Roko.Template.Tests.Integration.csproj", "{08D34B78-3C5F-4FB2-ABB6-A71AE55AAD33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roko.Template.Tests.Unit", "tests\Roko.Template.Tests.Unit\Roko.Template.Tests.Unit.csproj", "{4F22F699-88F1-4DB7-ABC5-4009924620E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +96,10 @@ Global
 		{08D34B78-3C5F-4FB2-ABB6-A71AE55AAD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08D34B78-3C5F-4FB2-ABB6-A71AE55AAD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08D34B78-3C5F-4FB2-ABB6-A71AE55AAD33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F22F699-88F1-4DB7-ABC5-4009924620E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F22F699-88F1-4DB7-ABC5-4009924620E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F22F699-88F1-4DB7-ABC5-4009924620E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F22F699-88F1-4DB7-ABC5-4009924620E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +120,7 @@ Global
 		{900D15D5-BA34-4C71-A442-15AEEE39248F} = {4896C17E-3DAA-408A-AA00-882600EBBF29}
 		{85AEA51B-3E07-4751-99B4-355ABD562BDD} = {5AB369E8-94B3-4C10-95BC-7036C8B51184}
 		{08D34B78-3C5F-4FB2-ABB6-A71AE55AAD33} = {5AB369E8-94B3-4C10-95BC-7036C8B51184}
+		{4F22F699-88F1-4DB7-ABC5-4009924620E9} = {5AB369E8-94B3-4C10-95BC-7036C8B51184}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC7C79F8-11DD-4A70-9917-EC63D173DED2}
