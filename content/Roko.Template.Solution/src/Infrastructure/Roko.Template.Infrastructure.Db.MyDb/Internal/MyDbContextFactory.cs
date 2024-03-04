@@ -9,10 +9,8 @@
         public MyDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
-
-#if (MyDb)
-            optionsBuilder.UseNpgsql(null);
-#elif (Postgres)
+            
+#if (Postgres)
             optionsBuilder.UseNpgsql(null);
 #elif (MsSql)
             optionsBuilder.UseSqlServer(null);

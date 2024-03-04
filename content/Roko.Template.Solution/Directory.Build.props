@@ -1,0 +1,20 @@
+<Project>
+    <PropertyGroup>
+        <TargetDatabase>MyDb</TargetDatabase>
+    </PropertyGroup>
+
+<!--#if( false )-->
+    <PropertyGroup Condition="'$(TargetDatabase)' == 'MyDb'">
+        <Database>Postgres</Database>
+    </PropertyGroup>
+<!--#elif( Postgres )-->
+    <PropertyGroup Condition="'$(TargetDatabase)' == 'Postgres'">
+        <Database>Postgres</Database>
+    </PropertyGroup>
+<!--#elif( MsSql )-->
+    <PropertyGroup Condition="'$(TargetDatabase)' == 'MsSql'">
+        <Database>MsSql</Database>
+    </PropertyGroup>
+<!--#endif-->
+
+</Project>
