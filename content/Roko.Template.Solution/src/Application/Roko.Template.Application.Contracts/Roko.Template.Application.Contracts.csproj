@@ -9,4 +9,8 @@
     <ProjectReference Include="..\..\Domain\Roko.Template.Domain\Roko.Template.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR.Contracts" Version="2.0.1" />
+  </ItemGroup>
+
 </Project>
