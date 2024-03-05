@@ -58,6 +58,11 @@
       "type": "generated",
       "generator": "guid",
       "replaces": "UniqueFolderMsSql"
+    },
+    "UserSecretsGuid": {
+      "type": "generated",
+      "generator": "guid",
+      "replaces": "6cb50438-c328-4455-bea4-0b30418df3c9"
     }
   }
 }

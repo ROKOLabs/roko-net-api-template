@@ -34,7 +34,8 @@
         public MyDbSettings MyDbSettings =>
             this.Configuration
             .GetSection(MyDbSettings.Key)
-            .Get<MyDbSettings>() ?? throw new ArgumentNullException(DbSettingsName);
+            .Get<MyDbSettings>() ?? throw new ArgumentNullException(DbSettingsName,
+                "The database connection settings are incorrect. Instructions on how to set up user secrets and other options can be found in README.md.");
 
         public void ConfigureServices(IServiceCollection services)
         {

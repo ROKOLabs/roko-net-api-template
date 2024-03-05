@@ -1,5 +1,6 @@
-services:
-#if (Database == "Postgres")
+﻿services:
+
+  #if (Database == "Postgres")
   roko.template-postgres:
     image: postgres
     container_name: roko.template-postgres
@@ -16,8 +17,14 @@ services:
     restart: unless-stopped
     ports:
       - "5432:5432"
-#endif
-#if (Database == "MsSql")
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 6s
+      timeout: 3s
+      retries: 10
+  #endif
+
+  #if (Database == "MsSql")
   roko.template-mssql:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: roko.template-mssql
@@ -32,4 +39,26 @@ services:
     restart: unless-stopped
     ports:
       - "1433:1433"
-#endif
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-Usa", "-PyourStrong(!)Password", "-Q", "select 1"]
+      interval: 1s
+      retries: 20
+  #endif
+  
+  roko.template:
+    image: roko.template
+    depends_on:
+      #if (Database == "Postgres")
+      roko.template-postgres:
+        condition: service_healthy
+      #endif
+      #if (Database == "MsSql")
+      roko.template-mssql:
+        condition: service_healthy
+      #endif
+    build:
+      context: .
+      dockerfile: src/Roko.Template/Dockerfile
+    ports:
+      - "5000:8080"
+      - "5001:8081"
