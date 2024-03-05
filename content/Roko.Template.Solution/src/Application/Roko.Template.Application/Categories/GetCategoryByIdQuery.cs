@@ -4,11 +4,10 @@
     using Roko.Template.Domain;
     using FluentValidation;
     using MediatR;
+    using Roko.Template.Application.Contracts.Categories;
     using System;
     using System.Threading;
     using System.Threading.Tasks;
-
-    public record GetCategoryByIdQuery(Guid Id) : IRequest<Category>;
 
     internal sealed class GetCategoryByIdQueryValidator : AbstractValidator<GetCategoryByIdQuery>
     {

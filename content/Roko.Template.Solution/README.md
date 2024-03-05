@@ -143,6 +143,15 @@ For Microsoft SQL Server:
 -  Start your application from IDE
 
 <!--#if(false)-->
+## Testing template
+The template solution includes support for both Postgres and MsSql databases. Postgres is the default. You should be able to start the template application against a containerized Postgres database without changing a thing.
+
+The template solution includes automated tests at the architectural, integration, and unit levels. All tests should be able to run locally on the development machine. When tests are started, a containerized database is created, which requires Docker Desktop to be installed.
+
+You should be able to run automated tests and experiment with the application that connects to Microsoft SQL as well. Use the following steps to setup MsSql:
+1. Change `MyDb` to `MsSql` in the `TargetDatabase` property of the `Directory.Build.props` file in solution folder.
+2. To fix migrations, delete them and create a new `InitialCreate` migration.
+
 ## Installing
 The `README.md` file in the parent folder contains instructions for installing the template package. This template will be added alongside the others when a corresponding `nupkg` is installed. After the installation, this template can be found under the short name `roko-api`. Use `dotnet new list` to check if the template is installed.
 

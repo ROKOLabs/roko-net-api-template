@@ -12,7 +12,7 @@
     using Microsoft.Extensions.Hosting;
     using System;
 
-    internal sealed class Startup
+    public sealed class Startup
     {
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
@@ -22,7 +22,7 @@
 
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
-
+        
 #if (Postgres)
         public const string DbSettingsName = "PostgresSettings";
 #elif (MsSql)

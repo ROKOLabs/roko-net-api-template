@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="coverlet.collector" Version="6.0.0"/>
+        <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.3" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
+        <PackageReference Include="xunit" Version="2.5.3"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="Xunit"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="UnitTest1.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Application\Roko.Template.Application.Contracts\Roko.Template.Application.Contracts.csproj" />
+      <ProjectReference Include="..\..\src\Application\Roko.Template.Application\Roko.Template.Application.csproj" />
+      <ProjectReference Include="..\..\src\Blocks\Roko.Template.Blocks.Common.Exceptions\Roko.Template.Blocks.Common.Exceptions.csproj" />
+      <ProjectReference Include="..\..\src\Blocks\Roko.Template.Blocks.Common.Kernel\Roko.Template.Blocks.Common.Kernel.csproj" />
+      <ProjectReference Include="..\..\src\Domain\Roko.Template.Domain\Roko.Template.Domain.csproj" />
+      <ProjectReference Include="..\..\src\Infrastructure\Roko.Template.Infrastructure.Db.MyDb\Roko.Template.Infrastructure.Db.MyDb.csproj" />
+      <ProjectReference Include="..\..\src\Presentation\Roko.Template.Presentation.Api\Roko.Template.Presentation.Api.csproj" />
+    </ItemGroup>
+
+</Project>

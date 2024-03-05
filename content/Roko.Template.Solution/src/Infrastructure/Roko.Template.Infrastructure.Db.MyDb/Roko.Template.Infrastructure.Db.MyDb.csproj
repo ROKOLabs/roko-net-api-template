@@ -4,15 +4,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <RootNamespace>Roko.Template.Infrastructure.Db.MyDb</RootNamespace>
-    <Database>MyDb</Database>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <DefineConstants>TRACE;Postgres</DefineConstants>
+    <DefineConstants>TRACE;$(Database)</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <DefineConstants>TRACE;Postgres</DefineConstants>
+    <DefineConstants>TRACE;$(Database)</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,11 +26,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
-<!--#if( false )-->
-  <ItemGroup Condition="'$(Database)' == 'MyDb'">
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
-  </ItemGroup>
-<!--#endif-->
 <!--#if( Postgres )-->
   <ItemGroup Condition="'$(Database)' == 'Postgres'">
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
@@ -50,6 +44,5 @@
     <ProjectReference Include="..\..\Application\Roko.Template.Application.Contracts\Roko.Template.Application.Contracts.csproj" />
     <ProjectReference Include="..\..\Blocks\Roko.Template.Blocks.Common.Exceptions\Roko.Template.Blocks.Common.Exceptions.csproj" />
   </ItemGroup>
-
 
 </Project>

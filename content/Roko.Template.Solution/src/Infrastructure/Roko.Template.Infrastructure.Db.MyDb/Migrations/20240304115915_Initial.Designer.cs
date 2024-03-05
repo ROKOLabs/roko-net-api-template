@@ -12,7 +12,7 @@ using Roko.Template.Infrastructure.Db.MyDb.Internal;
 namespace Roko.Template.Infrastructure.Db.MyDb.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240228170647_Initial")]
+    [Migration("20240304115915_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -36,8 +36,8 @@ namespace Roko.Template.Infrastructure.Db.MyDb.Migrations
 
                     b.Property<string>("Color")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("Description")
                         .IsRequired()
