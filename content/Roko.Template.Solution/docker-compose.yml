@@ -60,5 +60,4 @@
       context: .
       dockerfile: src/Roko.Template/Dockerfile
     ports:
-      - "5000:8080"
-      - "5001:8081"
+      - "5000:80"
