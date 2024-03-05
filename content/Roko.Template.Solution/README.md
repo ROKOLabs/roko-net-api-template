@@ -127,7 +127,12 @@ For Microsoft SQL Server:
 > When instances of solutions are generated from the template, only one database container and corresponding package are used.
 <!--#endif-->
 
--  Start your application from IDE
+> Several common errors can cause Docker containers to fail to start:
+> - The port 5000 or 5001 is currently in use.
+> - User secrets or database connection options are not correctly configured.
+> - Initial database migration does not exist or is not compatible with the chosen database technology.
+
+-  use swagger endpoint at http://localhost:5000/swagger/index.html or https://localhost:5001/swagger/index.html
 
 <!--#if(false)-->
 ## Testing template
