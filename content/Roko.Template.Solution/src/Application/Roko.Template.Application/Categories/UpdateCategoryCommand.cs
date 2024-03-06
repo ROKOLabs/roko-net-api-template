@@ -25,7 +25,7 @@
         }
     }
 
-    internal sealed class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand>
+    internal sealed class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommand, Category>
     {
         private readonly IUnitOfWork unitOfWork;
 
@@ -34,7 +34,7 @@
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Category> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
             Category category = await this.unitOfWork.Categories.GetByIdAsync(request.Id, cancellationToken);
 
@@ -48,6 +48,8 @@
             this.unitOfWork.Categories.Update(category);
 
             await this.unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return category;
         }
     }
 }

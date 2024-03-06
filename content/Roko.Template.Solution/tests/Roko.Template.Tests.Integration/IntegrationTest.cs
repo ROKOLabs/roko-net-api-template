@@ -1,12 +1,17 @@
 namespace Roko.Template.Tests.Integration
 {
+    using MediatR;
+    using Newtonsoft.Json;
+    using System.Text;
+    using static IntegrationTestHelpers;
+
     [Trait("Category", "Integration")]
     public abstract class IntegrationTest(ApiWebApplicationFactory factory) : IClassFixture<ApiWebApplicationFactory>
     {
         protected readonly ApiWebApplicationFactory Factory = factory;
 
-        protected HttpClient Client { get; } = factory.CreateClient();
+        protected DatabaseUtility Database { get; } = new DatabaseUtility(factory);
 
-        protected DatabaseUtility DatabaseUtility { get; } = new DatabaseUtility(factory);
+        protected HttpUtility Http { get; } = new HttpUtility(factory.CreateClient());
     }
 }

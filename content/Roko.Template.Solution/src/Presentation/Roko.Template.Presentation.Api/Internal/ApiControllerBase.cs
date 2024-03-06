@@ -2,6 +2,7 @@
 {
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
+    using Roko.Template.Domain;
     using System.Net.Mime;
     using System.Threading.Tasks;
 
@@ -22,23 +23,17 @@
             TCommand command)
             where TCommand : IRequest<TResponse>
         {
-            TResponse result = await this.Mediator.Send(command);
-
-            if (result is null)
-            {
-                return this.NotFound();
-            }
-
-            return this.Ok(result);
+            return this.Ok(await this.Mediator.Send(command)); 
         }
 
-        protected async Task<IActionResult> ProcessAsync<TCommand>(
+        protected async Task<IActionResult> ProcessCreateAsync<TCommand, TResponse>(
             TCommand command)
-            where TCommand : IRequest
+            where TCommand : IRequest<TResponse>
+            where TResponse : IResource
         {
-            await this.Mediator.Send(command);
+            TResponse response = await this.Mediator.Send(command);
 
-            return this.NoContent();
+            return this.Created($"{this.Request.Path}/{response.Id}", response);
         }
     }
 }

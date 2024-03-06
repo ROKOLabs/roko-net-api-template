@@ -32,7 +32,7 @@
         {
             var category = await this._categories.FindAsync(id, cancellationToken);
 
-            return category ?? throw new ServiceValidationException("Not found.");
+            return category ?? throw new ServiceResourceNotFoundException(typeof(Category), id);
         }
 
         public async Task<List<Category>> GetCategoriesAsync(CancellationToken cancellationToken)

@@ -78,12 +78,10 @@
                 });
 
             options.Map<ServiceAuthorizationException>(exception =>
-                new ProblemDetails()
-                {
-                    Title = exception.Title,
-                    Detail = exception.Detail,
-                    Status = StatusCodes.Status401Unauthorized
-                });
+                new StatusCodeProblemDetails(StatusCodes.Status401Unauthorized));
+
+            options.Map<ServiceResourceNotFoundException>(exception =>
+                new StatusCodeProblemDetails(StatusCodes.Status404NotFound));
         }
     }
 }

@@ -25,7 +25,7 @@
         }
     }
 
-    internal sealed class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand>
+    internal sealed class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, Category>
     {
         private readonly IUnitOfWork unitOfWork;
 
@@ -34,7 +34,7 @@
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
+        public async Task<Category> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
             Category category = new(
                 Guid.NewGuid(),
@@ -47,6 +47,8 @@
             this.unitOfWork.Categories.Add(category);
 
             await this.unitOfWork.SaveChangesAsync(cancellationToken);
+
+            return category;
         }
     }
 }
