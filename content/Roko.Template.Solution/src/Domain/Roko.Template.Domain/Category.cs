@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Category
+    public class Category: IResource
     {
         public Category(
             Guid id,

@@ -22,13 +22,13 @@
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateCategoryCommand command)
         {
-            return await this.ProcessAsync(command);
+            return await this.ProcessCreateAsync<CreateCategoryCommand, Category>(command);
         }
 
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] UpdateCategoryCommand command)
         {
-            return await this.ProcessAsync(command);
+            return await this.ProcessAsync<UpdateCategoryCommand, Category>(command);
         }
 
         [HttpGet]

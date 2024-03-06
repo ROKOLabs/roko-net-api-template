@@ -5,7 +5,7 @@ namespace Roko.Template.Application.Contracts
         using Roko.Template.Domain;
 
         public record CreateCategoryCommand(string Name, string Description, string Color, string Icon, decimal Amount)
-            : IRequest;
+            : IRequest<Category>;
 
         public record GetCategoriesQuery() : IRequest<List<Category>>;
 
@@ -17,6 +17,6 @@ namespace Roko.Template.Application.Contracts
             string Description,
             string Color,
             string Icon,
-            decimal Amount) : IRequest;
+            decimal Amount) : IRequest<Category>;
     }
 }
