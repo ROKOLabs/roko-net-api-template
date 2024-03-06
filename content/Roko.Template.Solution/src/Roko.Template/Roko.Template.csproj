@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UserSecretsId>6cb50438-c328-4455-bea4-0b30418df3c9</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -18,6 +19,12 @@
     <ProjectReference Include="..\Application\Roko.Template.Application\Roko.Template.Application.csproj" />
     <ProjectReference Include="..\Infrastructure\Roko.Template.Infrastructure.Db.MyDb\Roko.Template.Infrastructure.Db.MyDb.csproj" />
     <ProjectReference Include="..\Presentation\Roko.Template.Presentation.Api\Roko.Template.Presentation.Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\.dockerignore">
+      <Link>.dockerignore</Link>
+    </Content>
   </ItemGroup>
 
 </Project>

@@ -96,21 +96,13 @@ This helps to keep your dependencies clean.
 
 - Clone repository
 - Open Roko.Template.sln
-- In Visual Studio Solution Explorer navigate to `src` folder
-    - Right click on Roko.Template
-    - Click on **Set as Startup Project**
-    - Click on **Manage User Secrets**
-- In Rider
-    - In upper right corner select Roko.Template as a startup project
-    - In Solution Explorer right-click on Roko.Template
-    - Click on **Tools > .Net User Secrets**
 - Add the following secrets
 
 <!--#if (Postgres)-->
 For Postgres:
 ```
 {
-  "PostgresSettings:ConnectionString": "User ID=postgres; Password=yourStrong(!)Password;Host=localhost; Port=5432; Database=RokoTemplateDatabase"
+  "PostgresSettings:ConnectionString": "User ID=postgres; Password=yourStrong(!)Password;Host=roko.template-postgres; Port=5432; Database=RokoTemplateDatabase"
 }
 ```
 <!--#endif-->
@@ -118,7 +110,7 @@ For Postgres:
 For Microsoft SQL Server:
 ```
 {
-  "MssqlSettings:ConnectionString": "Server=localhost; Database=RokoTemplateDatabase;User Id=SA;Password=yourStrong(!)Password;TrustServerCertificate=Yes"
+  "MssqlSettings:ConnectionString": "Server=roko.template-mssql; Database=RokoTemplateDatabase;User Id=SA;Password=yourStrong(!)Password;TrustServerCertificate=Yes"
 }
 ```
 <!--#endif-->
@@ -127,12 +119,7 @@ For Microsoft SQL Server:
 > 
 > The only difference between user secrets and other configuration data is that they are not tracked in version control. Otherwise, they function as configuration files. So, one possible solution is to add values to environment variables, which are also not stored in version control.
 
-- In Roko.Template folder
-    - open terminal
-    - execute the following command
-```
-  docker compose up
-```
+- start `docker-compose.yml`
 
 <!--#if(false)-->
 > When the template is launched, Docker images for both the Postgres and MsSql databases are started. The template also includes the Entity Framework Core packages, which are required for working with both MsSql and Postgres. To test the template with either, use the preprocessor constants; the default is MyDb which uses Postgres.
@@ -140,7 +127,12 @@ For Microsoft SQL Server:
 > When instances of solutions are generated from the template, only one database container and corresponding package are used.
 <!--#endif-->
 
--  Start your application from IDE
+> Several common errors can cause Docker containers to fail to start:
+> - The port 5000 or 5001 is currently in use.
+> - User secrets or database connection options are not correctly configured.
+> - Initial database migration does not exist or is not compatible with the chosen database technology.
+
+-  use swagger endpoint at http://localhost:5000/swagger/index.html or https://localhost:5001/swagger/index.html
 
 <!--#if(false)-->
 ## Testing template
