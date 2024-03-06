@@ -61,12 +61,12 @@
                     .First(parameterDescription =>
                         parameterDescription.Name == parameter.Name);
 
-                parameter.Description ??= description.ModelMetadata?.Description;
+                parameter.Description ??= description.ModelMetadata.Description;
 
                 if (parameter.Schema is null &&
                     description.DefaultValue is not null)
                 {
-                    var json = JsonSerializer.Serialize(description.DefaultValue, description.ModelMetadata!.ModelType);
+                    var json = JsonSerializer.Serialize(description.DefaultValue, description.ModelMetadata.ModelType);
                     parameter.Schema!.Default = OpenApiAnyFactory.CreateFromJson(json);
                 }
 

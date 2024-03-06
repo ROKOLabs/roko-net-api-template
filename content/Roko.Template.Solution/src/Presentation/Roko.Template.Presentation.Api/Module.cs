@@ -77,10 +77,10 @@
                     Status = StatusCodes.Status400BadRequest
                 });
 
-            options.Map<ServiceAuthorizationException>(exception =>
+            options.Map<ServiceAuthorizationException>(_ =>
                 new StatusCodeProblemDetails(StatusCodes.Status401Unauthorized));
 
-            options.Map<ServiceResourceNotFoundException>(exception =>
+            options.Map<ServiceResourceNotFoundException>(_ =>
                 new StatusCodeProblemDetails(StatusCodes.Status404NotFound));
         }
     }

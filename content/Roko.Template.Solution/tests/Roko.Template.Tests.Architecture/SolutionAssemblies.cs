@@ -3,7 +3,6 @@ namespace Roko.Template.Tests.Architecture
     using FluentAssertions;
     using Roko.Template.Application.Contracts;
     using Roko.Template.Domain.Seedwork;
-    using Roko.Template.Infrastructure.Db.MyDb;
     using System.Reflection;
 
     public static class SolutionAssemblies
@@ -39,7 +38,7 @@ namespace Roko.Template.Tests.Architecture
 
         public static void CanReferenceOnly(this IEnumerable<Assembly> sourceAssemblies, params IEnumerable<Assembly>[] allowedAssemblies)
         {
-            var notAllowedAssemblies = All.Except(allowedAssemblies.SelectMany(_ => _));
+            var notAllowedAssemblies = All.Except(allowedAssemblies.SelectMany(list => list));
 
             var pairs =
                 from sourceAssembly in sourceAssemblies

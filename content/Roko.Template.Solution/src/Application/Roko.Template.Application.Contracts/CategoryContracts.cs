@@ -7,7 +7,7 @@ namespace Roko.Template.Application.Contracts
         public record CreateCategoryCommand(string Name, string Description, string Color, string Icon, decimal Amount)
             : IRequest<Category>;
 
-        public record GetCategoriesQuery() : IRequest<List<Category>>;
+        public record GetCategoriesQuery : IRequest<List<Category>>;
 
         public record GetCategoryByIdQuery(Guid Id) : IRequest<Category>;
 

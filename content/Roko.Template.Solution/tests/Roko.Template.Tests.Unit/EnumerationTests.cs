@@ -1,7 +1,6 @@
 namespace Roko.Template.Tests.Unit
 {
     using FluentAssertions;
-    using Microsoft.VisualBasic;
     using Roko.Template.Domain.Seedwork;
 
     [Trait("Category", "Unit")]

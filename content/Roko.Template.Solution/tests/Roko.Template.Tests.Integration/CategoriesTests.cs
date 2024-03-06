@@ -1,21 +1,10 @@
 namespace Roko.Template.Tests.Integration
 {
     using AutoFixture;
-    using AutoFixture.Kernel;
     using FluentAssertions;
-    using Microsoft.EntityFrameworkCore.Storage;
-    using Microsoft.Extensions.DependencyInjection;
-    using Org.BouncyCastle.Bcpg;
-    using Roko.Template.Application.Contracts;
     using Roko.Template.Application.Contracts.Categories;
     using Roko.Template.Domain;
-    using Roko.Template.Infrastructure.Db.MyDb.Internal;
-    using System.Collections;
-    using System.Drawing;
-    using System.Linq.Expressions;
     using System.Net;
-    using System.Reflection;
-    using System.Text;
 
     public class CategoriesTests(ApiWebApplicationFactory factory) : IntegrationTest(factory)
     {

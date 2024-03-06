@@ -6,9 +6,8 @@ namespace Roko.Template.Tests.Integration
     using Microsoft.AspNetCore.TestHost;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using System.Diagnostics.CodeAnalysis;
 
-    public class ApiWebApplicationFactory: WebApplicationFactory<Roko.Template.Startup>
+    public class ApiWebApplicationFactory: WebApplicationFactory<Startup>
     {
 #if( Postgres )
         private readonly Testcontainers.PostgreSql.PostgreSqlContainer _databaseContainer = new Testcontainers.PostgreSql.PostgreSqlBuilder()
@@ -44,7 +43,7 @@ namespace Roko.Template.Tests.Integration
                     .AddAuthentication("IntegrationTest")
                     .AddScheme<AuthenticationSchemeOptions, IntegrationTestAuthenticationHandler>(
                         "IntegrationTest",
-                        options => { }
+                        _ => { }
                     );
             });
         }

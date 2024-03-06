@@ -1,7 +1,6 @@
 ﻿namespace Roko.Template.Presentation.Api.Controllers.V1
 {
     using Asp.Versioning;
-    using Roko.Template.Application.Contracts;
     using Roko.Template.Domain;
     using Roko.Template.Presentation.Api.Internal;
     using Roko.Template.Presentation.Api.Internal.Constants;

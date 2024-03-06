@@ -11,9 +11,9 @@
             var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
 
 #if (Postgres)
-            optionsBuilder.UseNpgsql(null);
+            optionsBuilder.UseNpgsql();
 #elif (MsSql)
-            optionsBuilder.UseSqlServer(null);
+            optionsBuilder.UseSqlServer();
 #else
     #error Database not supported, define project constant or template parameter with the right value
 #endif
