@@ -26,21 +26,21 @@
             bool useNewtonsoftSerialization = true,
             params Assembly[]? swaggerExampleAssemblies)
         {
-            versioningOptions = options =>
+            versioningOptions ??= options =>
             {
                 options.DefaultApiVersion = new ApiVersion(1, 0);
                 options.AssumeDefaultVersionWhenUnspecified = true;
                 options.ReportApiVersions = true;
             };
 
-            explorerOptions = options =>
+            explorerOptions ??= options =>
             {
                 // Formats version as "'v'[major][.minor][-status]".
                 options.GroupNameFormat = "'v'VV";
                 options.SubstituteApiVersionInUrl = true;
             };
 
-            swaggerOptions = options =>
+            swaggerOptions ??= options =>
             {
                 options.EnableAnnotations();
                 options.ExampleFilters();

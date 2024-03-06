@@ -9,13 +9,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    internal sealed class GetCategoriesQueryValidator : AbstractValidator<GetCategoriesQuery>
-    {
-        public GetCategoriesQueryValidator()
-        {
-            // If needed, add validation.
-        }
-    }
+    internal sealed class GetCategoriesQueryValidator : AbstractValidator<GetCategoriesQuery>;
 
     internal sealed class GetCategoriesQueryHandler : IRequestHandler<GetCategoriesQuery, List<Category>>
     {

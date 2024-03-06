@@ -22,13 +22,13 @@
 
         public Guid Id { get; private set; }
 
-        public string Name { get; private set; } = default!;
+        public string Name { get; private set; }
 
-        public string Description { get; private set; } = default!;
+        public string Description { get; private set; }
 
-        public string Color { get; private set; } = default!;
+        public string Color { get; private set; }
 
-        public string Icon { get; private set; } = default!;
+        public string Icon { get; private set; }
 
         public decimal Amount { get; private set; }
 

@@ -1,9 +1,6 @@
 namespace Roko.Template.Tests.Integration
 {
-    using MediatR;
-    using Newtonsoft.Json;
     using Roko.Template.Domain;
-    using System.Text;
 
     public static class IntegrationTestHelpers
     {

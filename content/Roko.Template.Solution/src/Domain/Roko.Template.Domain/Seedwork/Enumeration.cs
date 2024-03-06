@@ -7,11 +7,9 @@
 
     public abstract class Enumeration : IComparable
     {
-        public string Name { get; private set; } = default!;
+        public string Name { get; }
 
-        public int Id { get; private set; }
-
-        protected Enumeration() { }
+        public int Id { get; }
 
         protected Enumeration(int id, string name) => (this.Id, this.Name) = (id, name);
 
