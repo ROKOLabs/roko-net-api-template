@@ -27,10 +27,7 @@ namespace Roko.Template.Tests.Integration
         {
             var createCommand = this._fixture.Create<CreateCategoryCommand>();
 
-            var (response, categoryFromResponse) =
-                await this.Client
-                    .PostAsync(CategoryApiPath, createCommand.AsJsonContent())
-                    .WithBody<Category>();
+            var (response, categoryFromResponse) = await this.Http.PostAsync(CategoryApiPath, createCommand);
 
             response.StatusCode.Should().Be(HttpStatusCode.Created);
             categoryFromResponse.Should().BeEquivalentTo(createCommand);
@@ -40,13 +37,10 @@ namespace Roko.Template.Tests.Integration
         public async void PutCategory()
         {
             var category = this._fixture.Create<Category>();
-            await DatabaseUtility.SaveToDatabase(category);
+            await this.Database.SaveToDatabase(category);
             var updateCommand = this._fixture.Create<UpdateCategoryCommand>() with { Id = category.Id };
 
-            var (response, categoryFromResponse) =
-                await this.Client
-                    .PutAsync(CategoryApiPath, updateCommand.AsJsonContent())
-                    .WithBody<Category>();
+            var (response, categoryFromResponse) = await this.Http.PutAsync(CategoryApiPath, updateCommand);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             categoryFromResponse.Should().BeEquivalentTo(updateCommand);
@@ -57,9 +51,7 @@ namespace Roko.Template.Tests.Integration
         {
             var updateCommand = this._fixture.Create<UpdateCategoryCommand>();
 
-            var response = await
-                this.Client
-                    .PutAsync(CategoryApiPath, updateCommand.AsJsonContent());
+            var (response, _) = await this.Http.PutAsync(CategoryApiPath, updateCommand);
 
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
@@ -68,12 +60,9 @@ namespace Roko.Template.Tests.Integration
         public async void GetCategory()
         {
             var someCategories = _fixture.CreateMany<Category>(1).ToArray();
-            await DatabaseUtility.SaveToDatabase(someCategories);
+            await this.Database.SaveToDatabase(someCategories);
 
-            var (response, categoriesFromResponse) =
-                await this.Client
-                    .GetAsync(CategoryApiPath)
-                    .WithBody<IEnumerable<Category>>();
+            var (response, categoriesFromResponse) = await this.Http.GetAsync<IEnumerable<Category>>(CategoryApiPath);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             categoriesFromResponse.HavingIdsMatchingTo(someCategories).Should().BeEquivalentTo(someCategories);
@@ -83,12 +72,9 @@ namespace Roko.Template.Tests.Integration
         public async void GetCategoryById()
         {
             var category = this._fixture.Create<Category>();
-            await DatabaseUtility.SaveToDatabase(category);
+            await this.Database.SaveToDatabase(category);
 
-            var (response, categoryFromResponse) = await
-                this.Client
-                    .GetAsync($"{CategoryApiPath}/{category.Id}")
-                    .WithBody<Category>();
+            var (response, categoryFromResponse) = await this.Http.GetAsync<Category>($"{CategoryApiPath}/{category.Id}");
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             categoryFromResponse.Should().BeEquivalentTo(category);
@@ -99,9 +85,7 @@ namespace Roko.Template.Tests.Integration
         {
             var id = this._fixture.Create<Guid>();
 
-            var response = await
-                this.Client
-                    .GetAsync($"{CategoryApiPath}/{id}");
+            var (response, _) = await this.Http.GetAsync<Category>($"{CategoryApiPath}/{id}");
 
             response.StatusCode.Should().Be(HttpStatusCode.NotFound);
         }
